@@ -4,8 +4,6 @@ Match and reverse routes. Fast with no dependencies. Nothing more.
 
 ## Usage
 
-### Setup
-
 Declare some routes:
 
 ```
@@ -19,14 +17,14 @@ const urlFromRoute = urlFromRouteHelper(routes)
 const routeFromUrl = routeFromUrlHelper(routes)
 ```
 
-### Match
+Match:
 
 ```
 routeFromUrl('/fruits/apple/veggies/celery/meats/pork')
   // <- { fruit: 'apple', veggie: 'celery', meat: 'pork' }
 ```
 
-### Reverse
+Reverse:
 
 ```
 urlFromRoute({ fruit: 'apple', veggie: 'celery', meat: 'pork' })
