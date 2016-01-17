@@ -1,6 +1,6 @@
 const regExpFromRouteTemplate = (routeTemplate) => {
   const regExpString = routeTemplate.replace(/:\w+/g, '(\\w+)')
-  return new RegExp(`\^${regExpString}\$`)
+  return new RegExp(`\^${regExpString}\\\/?\$`)
 }
 
 const namesFromRoute = (route) => {

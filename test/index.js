@@ -37,6 +37,13 @@ describe('routeFromUrl', () => {
     chai.assert.deepEqual(expectedRoute, actualRoute)
   })
 
+  it('matches when trailing slash is present', () => {
+    const url = '/fruits/apple/'
+    const actualRoute = routeFromUrl(url)
+    const expectedRoute = { fruit: 'apple' }
+    chai.assert.deepEqual(expectedRoute, actualRoute)
+  })
+
   it('reverses nothing', () => {
     const route = {}
     const actualUrl = urlFromRoute(route)
