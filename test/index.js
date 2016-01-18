@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import chai from 'chai'
 
 import { urlToRouteHelper, routeToUrlHelper } from '../src/index'
