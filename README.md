@@ -16,9 +16,9 @@ Declare some routes:
 import { routeFromUrlHelper, urlFromRouteHelper } from 'route-helper'
 
 const routes = [
-  '/fruits/:fruit',
-  '/fruits/:fruit/veggies/:veggie/meats/:meat',
-  '/fruits/:fruit/veggies/:veggie',
+  '/fruits/:fruitId',
+  '/fruits/:fruitId/veggies/:veggieId/meats/:meatId',
+  '/fruits/:fruitId/veggies/:veggieId',
 ]
 
 const urlFromRoute = urlFromRouteHelper(routes)
@@ -29,12 +29,12 @@ Match:
 
 ```
 const url = '/fruits/apple/veggies/celery/meats/pork'
-routeFromUrl(url) // <- { fruit: 'apple', veggie: 'celery', meat: 'pork' }
+routeFromUrl(url) // <- { fruitId: 'apple', veggieId: 'celery', meatId: 'pork' }
 ```
 
 Reverse:
 
 ```
-const route = { fruit: 'apple', veggie: 'celery', meat: 'pork' }
+const route = { fruitId: 'apple', veggieId: 'celery', meatId: 'pork' }
 urlFromRoute(route) // <- '/fruits/apple/veggies/celery/meats/pork'
 ```
