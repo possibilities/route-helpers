@@ -28,13 +28,13 @@ const routeFromUrl = routeFromUrlHelper(routes)
 Match:
 
 ```
-routeFromUrl('/fruits/apple/veggies/celery/meats/pork')
-  // <- { fruit: 'apple', veggie: 'celery', meat: 'pork' }
+const url = '/fruits/apple/veggies/celery/meats/pork'
+routeFromUrl(url) // <- { fruit: 'apple', veggie: 'celery', meat: 'pork' }
 ```
 
 Reverse:
 
 ```
-urlFromRoute({ fruit: 'apple', veggie: 'celery', meat: 'pork' })
-  // <- '/fruits/apple/veggies/celery/meats/pork'
+const route = { fruit: 'apple', veggie: 'celery', meat: 'pork' }
+urlFromRoute(route) // <- '/fruits/apple/veggies/celery/meats/pork'
 ```
