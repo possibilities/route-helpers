@@ -2,20 +2,18 @@ import chai from 'chai'
 
 import { routeFromUrlHelper, urlFromRouteHelper } from '../src/index'
 
-const routes = [
-  // Note: purposely starting with 1, 3, then 2 placeholders to ensure
-  // when there's no match the next one is checked and when there's a match
-  // followed by another item that would also match otherwise. AKA we only
-  // match when there's a full match and continue until there is.
-  '/fruits/:fruitId',
-  '/fruits/:fruitId/veggies/:veggieId/meats/:meatId',
-  '/fruits/:fruitId/veggies/:veggieId',
-]
-
-const routeFromUrl = routeFromUrlHelper(routes)
-const urlFromRoute = urlFromRouteHelper(routes)
+let routeFromUrl
+let urlFromRoute
 
 describe('routeFromUrl', () => {
+  beforeEach(() => {
+    const routes = [
+      '/fruits/:fruitId',
+      '/fruits/:fruitId/veggies/:veggieId/meats/:meatId',
+    ]
+    routeFromUrl = routeFromUrlHelper(routes)
+  })
+
   it('matches nothing', () => {
     const url = '/grains/rice'
     const actualRoute = routeFromUrl(url)
@@ -44,6 +42,38 @@ describe('routeFromUrl', () => {
     chai.assert.deepEqual(expectedRoute, actualRoute)
   })
 
+  // This is a little weird and heavy handed but the library is meant to be
+  // super simple so I don't want there to be any ambiguity about what order
+  // matches happen in, etc.
+  describe ('partial match is possible', () => {
+    beforeEach(() => {
+      // Note: the order here is what makes a partial match possible, but we're
+      // testing that only full matches match.
+      const routes = [
+        '/fruits/:fruitId/veggies/:veggieId/meats/:meatId',
+        '/fruits/:fruitId',
+      ]
+      routeFromUrl = routeFromUrlHelper(routes)
+    })
+
+    it('matches the full URL only', () => {
+      const url = '/fruits/apple'
+      const actualRoute = routeFromUrl(url)
+      const expectedRoute = { fruitId: 'apple' }
+      chai.assert.deepEqual(expectedRoute, actualRoute)
+    })
+  })
+})
+
+describe('urlFromRoute', () => {
+  beforeEach(() => {
+    const routes = [
+      '/fruits/:fruitId',
+      '/fruits/:fruitId/veggies/:veggieId/meats/:meatId',
+    ]
+    urlFromRoute = urlFromRouteHelper(routes)
+  })
+
   it('reverses nothing', () => {
     const route = {}
     const actualUrl = urlFromRoute(route)
@@ -66,16 +96,16 @@ describe('routeFromUrl', () => {
   })
 
   it('reverses and omits keys with undefined values', () => {
-    const route = { fruitId: 'apple', veggieId: 'celery', meatId: undefined }
+    const route = { fruitId: 'apple', veggieId: undefined, meatId: undefined }
     const actualUrl = urlFromRoute(route)
-    const expectedUrl = '/fruits/apple/veggies/celery'
+    const expectedUrl = '/fruits/apple'
     chai.assert.equal(expectedUrl, actualUrl)
   })
 
   it('reverses and omits keys with null values', () => {
-    const route = { fruitId: 'apple', veggieId: 'celery', meatId: null }
+    const route = { fruitId: 'apple', veggieId: null, meatId: null }
     const actualUrl = urlFromRoute(route)
-    const expectedUrl = '/fruits/apple/veggies/celery'
+    const expectedUrl = '/fruits/apple'
     chai.assert.equal(expectedUrl, actualUrl)
   })
 })
