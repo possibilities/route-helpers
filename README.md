@@ -2,7 +2,7 @@
 
 Match and reverse routes. Fast with no dependencies. Nothing more.
 
-[![Build Status](https://circleci.com/gh/possibilities/route-helper/tree/master.svg?style=shield&circle-token=866d74ac3f34561836d27df438f150e5e7f1ae1c)](https://circleci.com/gh/possibilities/route-helper)
+[![build status](https://img.shields.io/travis/possibilities/route-helper/master.svg)](https://travis-ci.org/possibilities/route-helper)
 [![npm version](https://img.shields.io/npm/v/route-helper.svg?style=flat-square)](https://www.npmjs.com/package/route-helper)
 
 ## Install
@@ -10,6 +10,8 @@ Match and reverse routes. Fast with no dependencies. Nothing more.
 ```
 npm install --save route-helper
 ```
+
+_Note: it is assumed that this will be used in a modern environemnt, for legacy environments add [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) in your app._
 
 ## Usage
 
