@@ -15,7 +15,7 @@ const objectifyPairs = (pairs) => {
   }, {})
 }
 
-export default function routeFromUrl(routes, url) {
+export default function urlToRoute(routes, url) {
   let matchedRoute
 
   // Iterate routes until we find a match
