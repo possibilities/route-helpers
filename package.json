@@ -1,7 +1,7 @@
 {
   "name": "route-helper",
   "version": "0.0.2",
-  "description": "Match and reverse URL routes",
+  "description": "Match and reverse routes. Fast with no dependencies. Nothing more.",
   "main": "lib/index.js",
   "files": [
     "lib",
