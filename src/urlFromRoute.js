@@ -23,8 +23,8 @@ export default function urlFromRoute(routesMeta, route) {
   const matchedRoute = routesMeta.find((routeMeta) => {
     // If the route has any keys at all and all the keys are present in the
     // lookup table consider it a match.
-    return Object.keys(route).length && Object.keys(route).every((name) => {
-      return routeMeta.namesPresent[name]
+    return Object.keys(route).length && Object.keys(route).every((key) => {
+      return routeMeta.namesPresent[key]
     })
   })
 
