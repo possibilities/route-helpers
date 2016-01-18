@@ -64,4 +64,18 @@ describe('routeFromUrl', () => {
     const expectedUrl = '/fruits/apple/veggies/celery/meats/pork'
     chai.assert.equal(expectedUrl, actualUrl)
   })
+
+  it('reverses and omits keys with undefined values', () => {
+    const route = { fruit: 'apple', veggie: 'celery', meat: undefined }
+    const actualUrl = urlFromRoute(route)
+    const expectedUrl = '/fruits/apple/veggies/celery'
+    chai.assert.equal(expectedUrl, actualUrl)
+  })
+
+  it('reverses and omits keys with null values', () => {
+    const route = { fruit: 'apple', veggie: 'celery', meat: null }
+    const actualUrl = urlFromRoute(route)
+    const expectedUrl = '/fruits/apple/veggies/celery'
+    chai.assert.equal(expectedUrl, actualUrl)
+  })
 })

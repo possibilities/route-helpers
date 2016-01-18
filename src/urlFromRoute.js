@@ -24,7 +24,12 @@ export default function urlFromRoute(routesMeta, route) {
     // If the route has any keys at all and all the keys are present in the
     // lookup table consider it a match.
     return Object.keys(route).length && Object.keys(route).every((key) => {
-      return routeMeta.namesPresent[key]
+      const isValuePresentInRoute = route[key] !== undefined && route[key] !== null
+      const isNamePresentInTemplate = routeMeta.namesPresent[key] === true
+      // If there's a match OK, if there's no match but the value is not present
+      // in the route or template we consider the key to be matching
+      return (isValuePresentInRoute && isNamePresentInTemplate)
+        || (!isValuePresentInRoute && !isNamePresentInTemplate)
     })
   })
 
