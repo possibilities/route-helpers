@@ -41,6 +41,28 @@ describe('routeFromUrl', () => {
     const expectedRoute = { fruitId: 'apple' }
     chai.assert.deepEqual(expectedRoute, actualRoute)
   })
+
+  // This is a little weird and heavy handed but the library is meant to be
+  // super simple so I don't want there to be any ambiguity about what order
+  // matches happen in, etc.
+  describe ('partial match is possible', () => {
+    beforeEach(() => {
+      // Note: the order here is what makes a partial match possible, but we're
+      // testing that only full matches match.
+      const routes = [
+        '/fruits/:fruitId/veggies/:veggieId/meats/:meatId',
+        '/fruits/:fruitId',
+      ]
+      routeFromUrl = routeFromUrlHelper(routes)
+    })
+
+    it('matches the full URL only', () => {
+      const url = '/fruits/apple'
+      const actualRoute = routeFromUrl(url)
+      const expectedRoute = { fruitId: 'apple' }
+      chai.assert.deepEqual(expectedRoute, actualRoute)
+    })
+  })
 })
 
 describe('urlFromRoute', () => {
