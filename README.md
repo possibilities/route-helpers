@@ -13,6 +13,8 @@ npm install --save route-helper
 Declare some routes:
 
 ```
+import { routeFromUrlHelper, urlFromRouteHelper } from 'route-helper'
+
 const routes = [
   '/fruits/:fruit',
   '/fruits/:fruit/veggies/:veggie/meats/:meat',
