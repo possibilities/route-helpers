@@ -18,7 +18,7 @@ const renderRouteTemplate = (route, template) => {
   }, template)
 }
 
-export default function urlFromRoute(routesMeta, route) {
+export default function routeToUrl(routesMeta, route) {
   // Find the matching route based
   const matchedRoute = routesMeta.find((routeMeta) => {
     // If the route has any keys at all and all the keys are present in the

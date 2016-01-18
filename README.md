@@ -16,7 +16,7 @@ npm install --save route-helper
 Declare some routes:
 
 ```
-import { routeFromUrlHelper, urlFromRouteHelper } from 'route-helper'
+import { urlToRouteHelper, routeToUrlHelper } from 'route-helper'
 
 const routes = [
   '/fruits/:fruitId',
@@ -24,20 +24,20 @@ const routes = [
   '/fruits/:fruitId/veggies/:veggieId',
 ]
 
-const urlFromRoute = urlFromRouteHelper(routes)
-const routeFromUrl = routeFromUrlHelper(routes)
+const routeToUrl = routeToUrlHelper(routes)
+const urlToRoute = urlToRouteHelper(routes)
 ```
 
 Match:
 
 ```
 const url = '/fruits/apple/veggies/celery/meats/pork'
-routeFromUrl(url) // <- { fruitId: 'apple', veggieId: 'celery', meatId: 'pork' }
+urlToRoute(url) // <- { fruitId: 'apple', veggieId: 'celery', meatId: 'pork' }
 ```
 
 Reverse:
 
 ```
 const route = { fruitId: 'apple', veggieId: 'celery', meatId: 'pork' }
-urlFromRoute(route) // <- '/fruits/apple/veggies/celery/meats/pork'
+routeToUrl(route) // <- '/fruits/apple/veggies/celery/meats/pork'
 ```

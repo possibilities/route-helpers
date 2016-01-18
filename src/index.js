@@ -1,13 +1,13 @@
-import routeFromUrl from './routeFromUrl'
-import urlFromRoute from './urlFromRoute'
+import urlToRoute from './urlToRoute'
+import routeToUrl from './routeToUrl'
 import parseRoutes from './parseRoutes'
 
-export function routeFromUrlHelper(routes) {
+export function urlToRouteHelper(routes) {
   const parsedRoutes = parseRoutes(routes)
-  return routeFromUrl.bind(null, parsedRoutes)
+  return urlToRoute.bind(null, parsedRoutes)
 }
 
-export function urlFromRouteHelper(routes) {
+export function routeToUrlHelper(routes) {
   const parsedRoutes = parseRoutes(routes)
-  return urlFromRoute.bind(null, parsedRoutes)
+  return routeToUrl.bind(null, parsedRoutes)
 }
