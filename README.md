@@ -2,6 +2,12 @@
 
 Match and reverse routes. Fast with no dependencies. Nothing more.
 
+## Install
+
+```
+npm install --save route-helper
+```
+
 ## Usage
 
 Declare some routes:
