@@ -1,3 +1,9 @@
+### 0.0.5 (crafted 01/18/16)
+
+  * Fix release, forgot to build previously!
+
+---
+
 ### 0.0.4 (crafted 01/18/16)
 
   * Rephrased everything `aFromB` → `bToA` (closes #5)
