@@ -43,3 +43,7 @@ Reverse:
 const route = { fruitId: 'apple', veggieId: 'celery', meatId: 'pork' }
 routeToUrl(route) // <- '/fruits/apple/veggies/celery/meats/pork'
 ```
+
+## Releases
+
+`npm run build && npm publish`
