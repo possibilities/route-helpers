@@ -1,5 +1,5 @@
 {
-  "name": "route-helper",
+  "name": "route-helpers",
   "version": "0.0.5",
   "description": "Match and reverse routes. Fast with no dependencies. Nothing more.",
   "main": "lib/index.js",
@@ -17,9 +17,9 @@
   "pre-commit": ["lint", "test"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/possibilities/route-helper.git"
+    "url": "https://github.com/possibilities/route-helpers.git"
   },
-  "homepage": "https://github.com/possibilities/route-helper",
+  "homepage": "https://github.com/possibilities/route-helpers",
   "keywords": [
     "routes",
     "match",

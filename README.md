@@ -2,13 +2,13 @@
 
 Match and reverse routes. Fast with no dependencies. Nothing more.
 
-[![build status](https://img.shields.io/travis/possibilities/route-helper/master.svg)](https://travis-ci.org/possibilities/route-helper)
-[![npm version](https://img.shields.io/npm/v/route-helper.svg?style=flat-square)](https://www.npmjs.com/package/route-helper)
+[![build status](https://img.shields.io/travis/possibilities/route-helpers/master.svg)](https://travis-ci.org/possibilities/route-helpers)
+[![npm version](https://img.shields.io/npm/v/route-helpers.svg?style=flat-square)](https://www.npmjs.com/package/route-helpers)
 
 ## Install
 
 ```
-npm install --save route-helper
+npm install --save route-helpers
 ```
 
 _Note: it is assumed that this will be used in a modern environemnt, for legacy environments add [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) in your app._
@@ -18,7 +18,7 @@ _Note: it is assumed that this will be used in a modern environemnt, for legacy 
 Declare some routes:
 
 ```
-import { urlToRouteHelper, routeToUrlHelper } from 'route-helper'
+import { urlToRouteHelper, routeToUrlHelper } from 'route-helpers'
 
 const routes = [
   '/fruits/:fruitId',
